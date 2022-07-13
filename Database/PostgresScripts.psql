@@ -1,1 +1,45 @@
+CREATE DATABASE CMS;
+\connect cms;
+CREATE SCHEMA CMS;
+DROP TABLE IF EXISTS CMS.BLOGS;
+Create table CMS.BLOGS 
+ (Id int GENERATED ALWAYS AS IDENTITY 
+ , Author varchar(30), 
+ PublishedOn date  , 
+BlogText text , CreatedOn timestamp );
 
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Joseph','2022-02-20','All brains are have neurons which are active at everytime!', '2022-01-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Steve','2022-06-01','Through a health and fitness blog, teach other people about a healthy lifestyle and provide various helpful tips and tricks to maintain a healthy diet or a regular exercise schedule.', '2022-3-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Kiran','2022-05-25','Muscle and Fitness blog provides diverse content centered around fitness and healthy living', '2022-05-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Steve','2022-07-01','This neat color-coded system is a great example of how to improve user experience.', '2022-06-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Jon','2022-08-26','A large, end-to-end picture of the blog owner in the kitchen greets visitors when they access the website', '2022-03-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Tom',null,'It provides the latest news centered on American colleges and universities. In addition to higher education news, ', '2021-08-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Jon','2022-12-31','Run by over 50 expert writers, The Balance Small Business is a blog that helps people start and run their own businesses', '2022-12-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Jon','2022-07-10','There are helpful tags under each article title displayed on the blog to immediately discern which categories the content of a certain blog post falls under.', '2022-06-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Tom','2022-12-26','An entrepreneur Shakil Khan founded the CoinDesk blog to provide global investment news, data, education, and events', '2022-11-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Tom',null,'An entrepreneur Shakil Khan founded the CoinDesk blog to provide global investment news, data, education, and events', '2022-03-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Pat','2022-07-01','The Ramsey Solutions blog is a part of The Ramsey Solutions company that provides education', '2022-05-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Kiran',null,'The Ramsey Solutions blog is a part of The Ramsey Solutions company that provides education', '2022-06-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Kiran','2022-07-15','Maggiulli includes Popular Posts as one of the items on his blog’s navigation bar', '2022-05-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Joseph','2022-07-22','Maggiulli includes Popular Posts as one of the items on his blog’s navigation bar', '2022-07-20 12:20:20');
+
+Insert into CMS.BLOGS (Author, PublishedOn,BlogText,CreatedOn) values  ('Pat',null,'Pinch of Yum is the brainchild of food blogger Lindsay Ostrom, a former teacher turned full-time blogger', '2022-06-20 12:20:20');
+
+
+create view draft_blogs as select Id,Author, PublishedOn,BlogText,CreatedOn from cms.blogs where publishedon is null;
+create view published_blogs as select Id,Author, PublishedOn,BlogText,CreatedOn from cms.blogs where publishedon is not null;
+
+ 
